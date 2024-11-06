@@ -3,9 +3,9 @@ digraph
 bgcolor="#191970";
 rankdir = LR;
 edge[style="invis", weight = 1000000];
-IND_0[shape=Mrecord, label = "IND = 0 | value = 0 | next = 2 | prev = 1 ", style="filled",fillcolor="#AFEEEE"]
-IND_1[shape=Mrecord, label = "IND = 1 | value = 111 | next = 0 | prev = 2 ", style="filled",fillcolor="#AFEEEE"]
-IND_2[shape=Mrecord, label = "IND = 2 | value = 222 | next = 1 | prev = 0 ", style="filled",fillcolor="#AFEEEE"]
+IND_0[shape=Mrecord, label = "IND = 0 | value = 0 | next = 1 | prev = 2 ", style="filled",fillcolor="#AFEEEE"]
+IND_1[shape=Mrecord, label = "IND = 1 | value = 111 | next = 2 | prev = 0 ", style="filled",fillcolor="#AFEEEE"]
+IND_2[shape=Mrecord, label = "IND = 2 | value = 222 | next = 0 | prev = 1 ", style="filled",fillcolor="#AFEEEE"]
 IND_3[shape=Mrecord, label = "IND = 3 | value = -1 | next = -1 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
 IND_4[shape=Mrecord, label = "IND = 4 | value = -1 | next = -1 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
 IND_5[shape=Mrecord, label = "IND = 5 | value = -1 | next = -1 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
@@ -29,13 +29,11 @@ HEAD[shape="rarrow", width = 0.5, height = 0.5, style="filled", fillcolor="#FF8C
 { rank = same; TAIL; IND_0}
 TAIL -> HEAD
 edge[color="#7FFF00", weight = 1, style=""];
-IND_0 -> IND_2;
-IND_1 -> IND_0;
-IND_2 -> IND_1;
-TAIL -> IND_2;
-edge[color="#DC143C", weight = 1, style=""];
-IND_0 -> IND_1;
 IND_1 -> IND_2;
 IND_2 -> IND_0;
-HEAD -> IND_1;
+TAIL -> IND_1;
+edge[color="#DC143C", weight = 1, style=""];
+IND_1 -> IND_0;
+IND_2 -> IND_1;
+HEAD -> IND_2;
 }

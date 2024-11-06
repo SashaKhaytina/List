@@ -29,11 +29,9 @@ HEAD[shape="rarrow", width = 0.5, height = 0.5, style="filled", fillcolor="#FF8C
 { rank = same; TAIL; IND_0}
 TAIL -> HEAD
 edge[color="#7FFF00", weight = 1, style=""];
-IND_0 -> IND_1;
 IND_1 -> IND_0;
 TAIL -> IND_1;
 edge[color="#DC143C", weight = 1, style=""];
-IND_0 -> IND_1;
 IND_1 -> IND_0;
 HEAD -> IND_1;
 }
