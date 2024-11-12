@@ -3,13 +3,13 @@ digraph
 bgcolor="#191970";
 rankdir = LR;
 edge[style="invis", weight = 1000000];
-IND_0[shape=Mrecord, label = "IND = 0 | value = 0 | next = 1 | prev = 3 ", style="filled",fillcolor="#AFEEEE"]
+IND_0[shape=Mrecord, label = "IND = 0 | value = 0 | next = 1 | prev = 6 ", style="filled",fillcolor="#AFEEEE"]
 IND_1[shape=Mrecord, label = "IND = 1 | value = 111 | next = 2 | prev = 0 ", style="filled",fillcolor="#AFEEEE"]
 IND_2[shape=Mrecord, label = "IND = 2 | value = 222 | next = 3 | prev = 1 ", style="filled",fillcolor="#AFEEEE"]
-IND_3[shape=Mrecord, label = "IND = 3 | value = 333 | next = 0 | prev = 2 ", style="filled",fillcolor="#AFEEEE"]
-IND_4[shape=Mrecord, label = "IND = 4 | value = -1 | next = 5 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
-IND_5[shape=Mrecord, label = "IND = 5 | value = -1 | next = 6 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
-IND_6[shape=Mrecord, label = "IND = 6 | value = -1 | next = 7 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
+IND_3[shape=Mrecord, label = "IND = 3 | value = 333 | next = 4 | prev = 2 ", style="filled",fillcolor="#AFEEEE"]
+IND_4[shape=Mrecord, label = "IND = 4 | value = 444 | next = 5 | prev = 3 ", style="filled",fillcolor="#AFEEEE"]
+IND_5[shape=Mrecord, label = "IND = 5 | value = 555 | next = 6 | prev = 4 ", style="filled",fillcolor="#AFEEEE"]
+IND_6[shape=Mrecord, label = "IND = 6 | value = 666 | next = 0 | prev = 5 ", style="filled",fillcolor="#AFEEEE"]
 IND_7[shape=Mrecord, label = "IND = 7 | value = -1 | next = 8 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
 IND_8[shape=Mrecord, label = "IND = 8 | value = -1 | next = 9 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
 IND_9[shape=Mrecord, label = "IND = 9 | value = -1 | next = 10 | prev = -1 ", style="filled",fillcolor="#AFEEEE"]
@@ -32,19 +32,22 @@ TAIL -> HEAD -> FREE
 edge[color="#7FFF00", weight = 1, style=""];
 IND_1 -> IND_2;
 IND_2 -> IND_3;
-IND_3 -> IND_0;
-IND_4 -> IND_5 [color="#FFFF00"];
-IND_5 -> IND_6 [color="#FFFF00"];
-IND_6 -> IND_7 [color="#FFFF00"];
+IND_3 -> IND_4;
+IND_4 -> IND_5;
+IND_5 -> IND_6;
+IND_6 -> IND_0;
 IND_7 -> IND_8 [color="#FFFF00"];
 IND_8 -> IND_9 [color="#FFFF00"];
 IND_9 -> IND_10 [color="#FFFF00"];
 IND_10 -> IND_0 [color="#FFFF00"];
 TAIL -> IND_1;
-FREE -> IND_4 [color="#FFFF00"];
+FREE -> IND_7 [color="#FFFF00"];
 edge[color="#DC143C", weight = 1, style=""];
 IND_1 -> IND_0;
 IND_2 -> IND_1;
 IND_3 -> IND_2;
-HEAD -> IND_3;
+IND_4 -> IND_3;
+IND_5 -> IND_4;
+IND_6 -> IND_5;
+HEAD -> IND_6;
 }
