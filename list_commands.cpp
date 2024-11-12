@@ -2,6 +2,7 @@
 
 #include "for_dump.h"
 
+
 void init_list(List* st_list)
 {
     st_list->list = (Node*) calloc(LEN_LIST, sizeof(Node));
@@ -31,7 +32,7 @@ void list_append(List* st_list, int elem, int ind, ForDump* st_dump)
     if (st_list->free == 0)
     {
         printf("Список заполнен. Добавление невозможно\n");
-        return; // Это норм?
+        return;
     }
 
     if (ind > st_list->size + 1) // добавляет на индекс, который больше чем длина + 1

@@ -14,7 +14,7 @@ const char* const HEAD_AND_TAIL_COLOR   = "#FF8C00";
 
 void dump(List* st_list, ForDump* st_dump);
 void create_png(int num);
-void to_do_log_file(ForDump* st_dump); // num - их количесвто
+void to_do_log_file(ForDump* st_dump);
 
 
 #endif

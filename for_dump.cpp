@@ -9,13 +9,11 @@ void dump(List* st_list, ForDump* st_dump)
     st_dump->dumps_counter++;
     int number_of_dump = st_dump->dumps_counter;
 
-    // printf("%d - st_dump->dumps_counter\n", st_dump->dumps_counter);
 
 
     char sample[21] = "pictures/image00.dot";
     sample[14] = (char) ('0' + ((int) number_of_dump / 10));
     sample[15] = (char) ('0' + ((int) number_of_dump % 10));
-    // printf("%s - sample\n", sample);
     FILE* file = fopen(sample, "w");
 
     fprintf(file, "digraph\n{\nbgcolor=\"%s\";\nrankdir = LR;\nedge[style=\"invis\", weight = 1000000];\n", FONT_COLOR);
@@ -26,7 +24,7 @@ void dump(List* st_list, ForDump* st_dump)
         fprintf(file, "IND_%d[shape=Mrecord, label = \"IND = %d | value = %d | next = %d | prev = %d \", style=\"filled\",fillcolor=\"%s\"]\n", i, i, st_list->list[i].data, st_list->list[i].next, st_list->list[i].prev, ELEM_LIST_COLOR);
     }
 
-    for (int i = 0; i < LEN_LIST - 1; i++) // создали все ячейки
+    for (int i = 0; i < LEN_LIST - 1; i++)
     {
         fprintf(file, "IND_%d -> IND_%d\n", i, i + 1);
     }
@@ -43,11 +41,8 @@ void dump(List* st_list, ForDump* st_dump)
     // Сделаем связи NEXT зелеными стрелками (и свободные - желтыми стрелками)
     fprintf(file, "edge[color=\"%s\", weight = 1, style=\"\"];\n", NEXT_EDGE_COLOR);
 
-    for (int i = 1; i < LEN_LIST; i++) // если запускать с 0, то на рисунке трешак, который только путает
+    for (int i = 1; i < LEN_LIST; i++) // Запускаем с 1 для удобства дебага (если запускать с 0, то на рисунке неудобно читать)
     {
-        // if (st_list->next[i] == -1) continue;
-        // fprintf(file, "IND_%d -> IND_%d;\n", i, st_list->next[i]);
-
         if (st_list->list[i].data == -1) fprintf(file, "IND_%d -> IND_%d [color=\"%s\"];\n", i, st_list->list[i].next, NEXT_FREE_EDGE_COLOR);
         else fprintf(file, "IND_%d -> IND_%d;\n", i, st_list->list[i].next);
     }
@@ -58,9 +53,9 @@ void dump(List* st_list, ForDump* st_dump)
     // Сделаем связи PREV красными стрелками
     fprintf(file, "edge[color=\"%s\", weight = 1, style=\"\"];\n", PREV_EDGE_COLOR);
 
-    for (int i = 1; i < LEN_LIST; i++) // если запускать с 0, то на рисунке трешак, который только путает
+    for (int i = 1; i < LEN_LIST; i++) 
     {
-        if (st_list->list[i].prev == -1) continue; // это возможно?
+        if (st_list->list[i].prev == -1) continue;
         fprintf(file, "IND_%d -> IND_%d;\n", i, st_list->list[i].prev);
     }
     fprintf(file, "HEAD -> IND_%d;\n", st_list->list[0].prev);
@@ -91,12 +86,11 @@ void to_do_log_file(ForDump* st_dump)
 
     for (int i = 1; i <= st_dump->dumps_counter; i++)
     {        
-        // char sample[] = {'p', 'i', 'c', '0', '0', '.', 'p', 'n', 'g'};
         char sample[] = "pic00.png";
         sample[3] = (char) ('0' + ((int) i / 10));
         sample[4] = (char) ('0' + ((int) i % 10));
 
-        fprintf(file, "<big><big><h style=\"color:#FF8C00\">LIST %s (print %d) &#128578;</h></big></big>\n\n", st_dump->commands[i], i); //  сюда строку!
+        fprintf(file, "<big><big><h style=\"color:#FF8C00\">LIST %s (print %d) &#128578;</h></big></big>\n\n", st_dump->commands[i], i);
 
 
         fprintf(file, "<img src=\"%s\">\n\n\n", sample);

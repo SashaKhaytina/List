@@ -1,1 +1,1 @@
-g++ main2.cpp list_commands.cpp for_dump.cpp
+g++ main_list.cpp list_commands.cpp for_dump.cpp
